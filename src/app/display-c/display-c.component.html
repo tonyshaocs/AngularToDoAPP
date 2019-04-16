@@ -1,0 +1,43 @@
+<section>
+<section (drop)="onDrop($event)" (dragover)="onDragOver($event)" class="dropBox">Add a JSON with tasks!</section>
+<textarea readonly id = "qq" [(ngModel)]="textA" class="textBox" rows="4" cols="50"></textarea>
+</section>
+
+<section class="addSection">
+<div class="justGo">
+<input [(ngModel)]='taskN' class="search" type="text" placeholder="Task Name">
+<input [(ngModel)]='taskD' class="search" type="text" placeholder="Task Description">
+<button (click)="addNewTask()" class="btn btn-primary ant">Add new Task</button>
+</div>
+
+</section>
+
+<div class="overflow_container">
+<h1 class="text-center bg-primary">Unfinished Tasks</h1>
+<div class="overflow">
+<table class="table-dark">
+<div *ngFor="let x of modelArray; let i = index" >
+<tr *ngIf = "x.complete==false" >
+<td class="largertd text-left">Task: {{x.task}}</td>
+<td class="sharedtd text-left"><button class="check_button" (click)="completeTask(i)"></button></td>
+<td class="sharedtd text-left"><button class="del_button" (click)="removeTask(i)"></button></td>
+</tr>
+<tr class="desctd" *ngIf = "x.complete==false">{{x.description}}</tr>
+</div>
+</table>
+</div></div>
+
+<div class="overflow_container">
+<h1 class="text-center bg-success">Completed Tasks</h1>
+<div class="overflow">
+<table class="table-dark">
+<div *ngFor="let x of modelArray; let i = index" >
+<tr *ngIf = "x.complete==true">
+<td class="largertd text-left">Task: {{x.task}}</td>
+<td class="sharedtd text-left"><button class="nocheck_button" (click)="uncompleteTask(i)"></button></td>
+<td class="sharedtd text-left"><button class="del_button" (click)="removeTask(i)"></button></td>
+</tr>
+<tr class="desctd" *ngIf = "x.complete==true">{{x.description}}</tr>
+</div>
+</table>
+</div></div>

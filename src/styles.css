@@ -1,0 +1,308 @@
+@import url("bootstrap.css");
+
+h1{
+	padding-bottom:5px;
+	margin-bottom:0px;
+	border:solid;
+	border-width:1px;
+	color:white;
+}
+
+h2{
+	margin-bottom:0px;
+	
+}
+
+textarea {
+   resize: none;
+}
+
+tr{
+	display:block;
+}
+
+.dropBox{
+	position:relative;
+	float:left;
+	height:175px;
+	width:25%;
+	border:dashed;
+	margin-left:50px;
+	border-width: 3px;
+	border-radius: 5px;
+	font-size:25px;
+	text-align:center;
+	background-color: #E8E8E8;
+	margin-top:10px;
+}
+
+.textBox{
+	position:relative;
+	width:60%;
+	float:right;
+	margin-right:50px;
+	margin-top:10px;
+	height:200px;
+}
+
+.search{
+	margin-bottom:10px;
+	margin-right:5px;
+	margin-left:10px;
+}
+
+
+.addSection{
+	bottom:0px;
+	border:solid;
+	display:block;
+	margin-bottom:50px;
+}
+
+
+.overflow_container{
+	float:left;
+	display:relative;
+	width:50%;
+	border:solid;
+	border-width:2px;
+}
+
+.overflow{
+	overflow:auto;	
+	height:500px;
+}
+
+
+.check_button,.del_button,.nocheck_button{
+	display: block;
+	background-size: 100% 100%;
+	width:100%;
+	border:solid;
+	height:100px;
+}
+
+.check_button{
+	background-image : url("assets/img/check_box.png");
+	background-color:#32CD32;
+}
+
+
+.del_button{
+	background-image : url("assets/img/red_del.png");
+	background-color:#E00000;
+	
+}
+
+.nocheck_button{
+	background-image : url("assets/img/empty_box.png");
+	background-color:#ADD8E6;
+}
+
+
+.largertd{
+	font-size:32px;
+	border:solid;
+	border-width:1px;
+	width:700px;
+	word-break: break-word;
+}
+
+
+.sharedtd{
+	font-size:20px;
+	border:solid;
+	border-width:1px;
+}
+
+.desctd{
+	font-size:20px;
+	width:100%;
+	word-break: break-word;
+	margin-bottom:10px;
+	border:solid;
+	border-width:1px;
+	min-height:40px;
+}
+
+.table-dark{
+	border:solid; 
+	width:100%;
+}
+
+.justGo{
+	bottom:0;
+	display:relative;
+	float:bottom;
+	margin-top:220px;
+}
+@media(max-width:1920px){
+	.sharedtd{
+		width:110px;
+	}
+}
+
+@media(max-width:1680px){
+	.check_button,.del_button,.nocheck_button{
+		height:100px;
+	}
+	
+	.sharedtd{
+		width:125px;
+	}
+}
+
+@media(max-width:1600px){
+	.sharedtd{
+		width:140px;
+	}
+}
+
+@media(max-width:1440px){
+	.ant{
+		width:200px;
+		margin:10px;
+	}
+	.check_button,.del_button,.nocheck_button{
+		height:90px;
+	}
+	
+	.search{
+		width:140px;
+	}
+	
+}
+
+@media(max-width:1024px){
+	.largertd{
+		font-size:24px;
+	}
+	.desctd{
+		font-size:24px;
+	}
+	.check_button,.del_button,.nocheck_button{
+		height:75px;
+	}
+	.sharedtd{
+		width:165px;
+	}
+	.dropBox{
+		margin-left:20px;
+		width:250px;
+	}
+	
+}
+
+
+@media(max-width:850px){
+	h1{
+		font-size:30px;
+	}
+	.largertd{
+		font-size:20px;
+	}
+	.desctd{
+		font-size:20px;
+	}
+	.check_button,.del_button,.nocheck_button{
+		height:65px;
+	}
+	.dropBox{
+		margin-left:10px;
+	}
+	.dropBox{
+		width:90%;
+		border-width:1px;
+		margin-left:25px;
+	}
+	.textBox{
+		width:90%;
+		margin-right:0px;
+		margin-left:25px;
+		margin-bottom:10px;
+		float:left;
+	}
+}
+
+@media(max-width:700px){
+	h1{
+		font-size:40px;
+	}
+	.largertd{
+		font-size:28px;
+	}
+	.desctd{
+		font-size:28px;
+	}
+	.check_button,.del_button,.nocheck_button{
+		height:100px;
+	}
+	
+	.sharedtd{
+		width:175px;
+	}
+	.overflow_container{
+		width:100%;
+	}
+	.search{
+		margin:0px;
+		width:100%;
+		margin-bottom:5px;
+	}
+
+}
+
+@media(max-width:520px){
+	h1{
+		font-size:28px;
+	}
+	.ant{
+		width:100%;
+		margin-left:0px;
+	}
+	.largertd{
+		font-size:24px;
+	}
+	.desctd{
+		font-size:24px;
+	}
+	.check_button,.del_button,.nocheck_button{
+		height:80px;
+	}	
+}
+
+@media(max-width:460px){
+	.largertd{
+		display:inline-block;
+		float:left;
+		width:100%;
+	}
+	.check_button,.del_button,.nocheck_button{
+		height:140px;
+		width:100%;
+	}
+	.dropBox,.textBox{
+		margin-left:10px;
+	}
+	.sharedtd{
+		width:140px;
+	}
+}
+
+@media(max-width:300px){
+	h1{
+		font-size:20px;
+	}
+	.largertd{
+		font-size:16px;
+	}
+	.desctd{
+		font-size:16px;
+	}
+	.check_button,.del_button,.nocheck_button{
+		height:100px;
+	}
+	h2{
+		text-align:center;
+	}
+}

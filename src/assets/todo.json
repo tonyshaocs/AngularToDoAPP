@@ -1,0 +1,19 @@
+{
+"todo":[
+{
+"task": "Shop at Lidl",
+"complete": false,
+"description": "Buy meat"
+},
+{
+"task": "Shop at Aldi",
+"complete": false,
+"description": "Buy cola "
+},
+{
+"task": "Shop at Walmart",
+"complete": true,
+"description": "Buy Pepsi"
+}
+]
+}
