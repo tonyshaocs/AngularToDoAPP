@@ -1,5 +1,6 @@
 
 Angular TODO App
+
 •	An Angular application to add, remove, and check-off tasks
 
 •	Users can drag-and-drop a JSON file to add new tasks or enter it manually
