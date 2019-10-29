@@ -1,5 +1,4 @@
-
-Angular TODO App
+# Angular TODO App
 
 <ul>
   <li>An Angular application to add, remove, and check-off tasks.</li>
