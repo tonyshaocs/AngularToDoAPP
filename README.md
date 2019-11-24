@@ -3,7 +3,7 @@
 <h3>An Angular application to add, remove, and check-off tasks.</h3>
 
 <h4>Preview:</h4>
-<br/>
+
 ![alt text](https://github.com/tonyshaocs/AngularToDoAPP/blob/master/Example3.png)
 
 <h4>Components:</h4>
