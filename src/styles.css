@@ -80,6 +80,7 @@ tr{
 	border:solid;
 	border-width:1px;
 	width:700px;
+	padding-left:10px;
 	word-break: break-word;
 }
 
