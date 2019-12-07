@@ -9,8 +9,7 @@ h1{
 }
 
 h2{
-	margin-bottom:0px;
-	
+	margin: 0px 0px 0px 10px;
 }
 
 textarea {
@@ -21,36 +20,13 @@ tr{
 	display:block;
 }
 
-.dropBox{
-	position:relative;
-	float:left;
-	height:175px;
-	width:25%;
-	border:dashed;
-	margin-left:50px;
-	border-width: 3px;
-	border-radius: 5px;
-	font-size:25px;
-	text-align:center;
-	background-color: #E8E8E8;
-	margin-top:10px;
+.w-100{
+	width:100%;
 }
 
-.textBox{
-	position:relative;
-	width:60%;
-	float:right;
-	margin-right:50px;
-	margin-top:10px;
-	height:200px;
-}
-
-.search{
+.mb-10{
 	margin-bottom:10px;
-	margin-right:5px;
-	margin-left:10px;
 }
-
 
 .addSection{
 	bottom:0px;
@@ -78,7 +54,7 @@ tr{
 	display: block;
 	background-size: 100% 100%;
 	width:100%;
-	border:solid;
+	border:none;
 	height:100px;
 }
 
@@ -99,7 +75,6 @@ tr{
 	background-color:#ADD8E6;
 }
 
-
 .largertd{
 	font-size:32px;
 	border:solid;
@@ -107,7 +82,6 @@ tr{
 	width:700px;
 	word-break: break-word;
 }
-
 
 .sharedtd{
 	font-size:20px;
@@ -119,23 +93,45 @@ tr{
 	font-size:20px;
 	width:100%;
 	word-break: break-word;
-	margin-bottom:10px;
 	border:solid;
 	border-width:1px;
 	min-height:40px;
+	padding-left:10px;
 }
 
-.table-dark{
-	border:solid; 
-	width:100%;
+.margin-auto{
+	margin: 0 auto;
 }
 
-.justGo{
-	bottom:0;
-	display:relative;
-	float:bottom;
-	margin-top:220px;
+.dropBox{
+	float:left;
+	height:175px;
+	width:30vw;
+	border-radius: 15px;
+	font-size:25px;
+	text-align:center;
+	background-color: #E8E8E8;
+	margin:25px 0px 0px 20px;
 }
+
+.textBox{
+	position: relative;
+	width: 60%;
+	float: right;
+	margin: 25px 20px 20px;
+	height: 320px;
+}
+
+.newTask{
+	width:30vw;
+	margin: 225px auto 25px 20px;
+}
+
+.search{
+	margin-bottom:10px;
+}
+
+
 @media(max-width:1920px){
 	.sharedtd{
 		width:110px;
@@ -167,17 +163,10 @@ tr{
 		height:90px;
 	}
 	
-	.search{
-		width:140px;
-	}
-	
 }
 
 @media(max-width:1024px){
 	.largertd{
-		font-size:24px;
-	}
-	.desctd{
 		font-size:24px;
 	}
 	.check_button,.del_button,.nocheck_button{
@@ -185,12 +174,7 @@ tr{
 	}
 	.sharedtd{
 		width:165px;
-	}
-	.dropBox{
-		margin-left:20px;
-		width:250px;
-	}
-	
+	}	
 }
 
 
@@ -201,14 +185,8 @@ tr{
 	.largertd{
 		font-size:20px;
 	}
-	.desctd{
-		font-size:20px;
-	}
 	.check_button,.del_button,.nocheck_button{
 		height:65px;
-	}
-	.dropBox{
-		margin-left:10px;
 	}
 	.dropBox{
 		width:90%;
@@ -219,8 +197,11 @@ tr{
 		width:90%;
 		margin-right:0px;
 		margin-left:25px;
-		margin-bottom:10px;
 		float:left;
+	}
+	.newTask{
+		width:95%;
+		margin: 200px auto 20px auto;
 	}
 }
 
@@ -229,9 +210,6 @@ tr{
 		font-size:40px;
 	}
 	.largertd{
-		font-size:28px;
-	}
-	.desctd{
 		font-size:28px;
 	}
 	.check_button,.del_button,.nocheck_button{
@@ -261,9 +239,6 @@ tr{
 		margin-left:0px;
 	}
 	.largertd{
-		font-size:24px;
-	}
-	.desctd{
 		font-size:24px;
 	}
 	.check_button,.del_button,.nocheck_button{

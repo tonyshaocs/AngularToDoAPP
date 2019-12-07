@@ -1,43 +1,47 @@
 <section>
-<section (drop)="onDrop($event)" (dragover)="onDragOver($event)" class="dropBox">Add a JSON with tasks!</section>
-<textarea readonly id = "qq" [(ngModel)]="textA" class="textBox" rows="4" cols="50"></textarea>
+	<section (drop)="onDrop($event)" (dragover)="onDragOver($event)" class="dropBox">
+		<div>Drop a JSON with tasks!</div>
+	</section>
+	<textarea readonly id = "qq" [(ngModel)]="textA" class="textBox" rows="4" cols="50"></textarea>
 </section>
 
 <section class="addSection">
-<div class="justGo">
-<input [(ngModel)]='taskN' class="search" type="text" placeholder="Task Name">
-<input [(ngModel)]='taskD' class="search" type="text" placeholder="Task Description">
-<button (click)="addNewTask()" class="btn btn-primary ant">Add new Task</button>
-</div>
-
+	<div class="newTask">
+		<h5 class="mb-10">Add a new Task:</h5>
+		<input [(ngModel)]='taskN' class="search w-100" type="text" placeholder="Task Name">
+		<input [(ngModel)]='taskD' class="search w-100" type="text" placeholder="Task Description">
+		<button (click)="addNewTask()" class="btn btn-primary w-100">Add</button>
+	</div>
 </section>
 
 <div class="overflow_container">
-<h1 class="text-center bg-primary">Unfinished Tasks</h1>
-<div class="overflow">
-<table class="table-dark">
-<div *ngFor="let x of modelArray; let i = index" >
-<tr *ngIf = "x.complete==false" >
-<td class="largertd text-left">Task: {{x.task}}</td>
-<td class="sharedtd text-left"><button class="check_button" (click)="completeTask(i)"></button></td>
-<td class="sharedtd text-left"><button class="del_button" (click)="removeTask(i)"></button></td>
-</tr>
-<tr class="desctd" *ngIf = "x.complete==false">{{x.description}}</tr>
+	<h1 class="text-center bg-primary">Unfinished Tasks</h1>
+	<div class="overflow">
+	<div class="text-light bg-dark">
+		<div *ngFor="let x of modelArray; let i = index">
+			<tr *ngIf = "x.complete==false" >
+				<td class="largertd text-left">Task: {{x.task}}</td>
+				<td class="sharedtd text-left"><button class="check_button" (click)="completeTask(i)"></button></td>
+				<td class="sharedtd text-left"><button class="del_button" (click)="removeTask(i)"></button></td>
+			</tr>
+		<tr class="desctd" *ngIf = "x.complete==false">{{x.description}}</tr>
+		</div>
+	</div>
+	</div>
 </div>
-</table>
-</div></div>
 
 <div class="overflow_container">
-<h1 class="text-center bg-success">Completed Tasks</h1>
-<div class="overflow">
-<table class="table-dark">
-<div *ngFor="let x of modelArray; let i = index" >
-<tr *ngIf = "x.complete==true">
-<td class="largertd text-left">Task: {{x.task}}</td>
-<td class="sharedtd text-left"><button class="nocheck_button" (click)="uncompleteTask(i)"></button></td>
-<td class="sharedtd text-left"><button class="del_button" (click)="removeTask(i)"></button></td>
-</tr>
-<tr class="desctd" *ngIf = "x.complete==true">{{x.description}}</tr>
+	<h1 class="text-center bg-success">Completed Tasks</h1>
+	<div class="overflow">
+	<div class="bg-dark text-light">
+		<div *ngFor="let x of modelArray; let i = index" >
+			<tr *ngIf = "x.complete==true">
+				<td class="largertd text-left">Task: {{x.task}}</td>
+				<td class="sharedtd text-left"><button class="nocheck_button" (click)="uncompleteTask(i)"></button></td>
+				<td class="sharedtd text-left"><button class="del_button" (click)="removeTask(i)"></button></td>
+			</tr>
+			<tr class="desctd" *ngIf = "x.complete==true">{{x.description}}</tr>
+		</div>
+	</div>
+	</div>
 </div>
-</table>
-</div></div>
