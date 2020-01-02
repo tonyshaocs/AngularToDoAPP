@@ -20,6 +20,11 @@ tr{
 	display:block;
 }
 
+.border-down{
+	border-bottom:solid;
+	border-color:black;
+}
+
 .w-100{
 	width:100%;
 }
@@ -28,12 +33,7 @@ tr{
 	margin-bottom:10px;
 }
 
-.addSection{
-	bottom:0px;
-	border:solid;
-	display:block;
-	margin-bottom:50px;
-}
+
 
 
 .overflow_container{
@@ -56,6 +56,7 @@ tr{
 	width:100%;
 	border:none;
 	height:100px;
+
 }
 
 .check_button{
@@ -77,32 +78,29 @@ tr{
 
 .largertd{
 	font-size:32px;
-	border:solid;
+	border-left:solid;
+	border-right:solid;
+	border-color:black;
 	border-width:1px;
 	width:700px;
 	padding-left:10px;
-	word-break: break-word;
+	word-break: break-all;
 }
 
 .sharedtd{
-	font-size:20px;
-	border:solid;
+	border:none;
 	border-width:1px;
 }
 
-.desctd{
-	font-size:20px;
-	width:100%;
-	word-break: break-word;
-	border:solid;
-	border-width:1px;
-	min-height:40px;
-	padding-left:10px;
+.taskDesc{
+	font-size:18px;
 }
 
 .margin-auto{
 	margin: 0 auto;
 }
+
+
 
 .dropBox{
 	float:left;
@@ -121,6 +119,16 @@ tr{
 	float: right;
 	margin: 25px 20px 20px;
 	height: 320px;
+}
+
+
+
+/*Adding new task*/
+.addSection{
+	bottom:0px;
+	border:solid;
+	display:block;
+	margin-bottom:50px;
 }
 
 .newTask{

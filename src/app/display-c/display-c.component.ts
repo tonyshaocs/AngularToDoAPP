@@ -8,6 +8,7 @@ import {taskModel} from './model';
   templateUrl: './display-c.component.html',
   styleUrls: ['./display-c.component.css']
 })
+
 export class DisplayCComponent implements OnInit {
   public jsonArray  = [];  
   public dragdropArray  = [];
@@ -15,9 +16,9 @@ export class DisplayCComponent implements OnInit {
   public model: taskModel;
   public modelArray=[];
   
-  taskN:string='';
-  taskD:string='';
-  textA:string='';
+  taskN:string=''; //The task's name
+  taskD:string=''; //The task's description
+  textA:string=''; //The text area that shows the JSON.
   
   constructor(public httpClient: HttpClient){
 	    
@@ -26,11 +27,11 @@ export class DisplayCComponent implements OnInit {
   
   ngOnInit() {
 	  var isChrome = !!(<any>window).chrome && (!!(<any>window).chrome.webstore || !!(<any>window).chrome.runtime);
-	  if (!isChrome){
-		  alert("Warning: FileSystem is not available on this browser, use Google Chrome instead for all features.");
+	  if (!isChrome){ //Warns user to use Chrome.
+		  alert("Warning: Persistent FileSystem is not available on this browser, use Google Chrome instead for all features.");
 	  }
 	  
-	  //Tries to read the persistent storage for json.
+	  //Initially attempts to read the persistent storage for json.
 	  this.httpClient.get( "filesystem:"+location.href+"persistent/tshaotodo.json").subscribe((res : any)=>{
 			this.jsonArray = res.todo;
 			for (var i=0;i<this.jsonArray.length;i++){
@@ -39,7 +40,7 @@ export class DisplayCComponent implements OnInit {
 			}
 			this.updateJSON();
       },
-	  error => { //If it does not exist, reads the json file on server and then creates the json file in the persistent storage to be updated.
+	  error => { //If file does not exist in persistent storage, reads the json file on local system, and creates the json file in the persistent storage.
 		try{
 		this.httpClient.get(location.href+"assets/todo.json").subscribe((res : any)=>{
 			this.jsonArray = res.todo;
@@ -60,10 +61,10 @@ export class DisplayCComponent implements OnInit {
   //User Adds Task
   addNewTask(){
 	  if(this.taskN!=""){
-		if(this.taskD!=""){
-			this.modelArray.push({"task":this.taskN,"complete":false,"description":this.taskD});
+		if(this.taskD!=""){ //If the user's inputted description is not empty
+			this.modelArray.push({"task":this.taskN,"complete":false,"description":this.taskD}); 
 		}
-		else{
+		else{ //If the user's inputted description is empty
 			this.modelArray.push({"task":this.taskN,"complete":false,"description":this.taskD+"No Description Added"});
 		}
 	  }
@@ -89,7 +90,6 @@ export class DisplayCComponent implements OnInit {
 	  this.updateJSON();
   }
   
-  
   //User removes Task
   removeTask(i){
 	  this.modelArray.splice(i,1);
@@ -109,48 +109,24 @@ export class DisplayCComponent implements OnInit {
   }
 
   
-  //readFile, once it is ready.
-  afterRead(lol){
+  //Reads the file, once it is ready.
+  afterRead(fileReadResult){
 	   try{
-		var jsObject = JSON.parse(lol);
+		var jsObject = JSON.parse(fileReadResult);
 		var c = this.modelArray.concat(jsObject['todo']);
 		this.modelArray=c;
-		//Calling Custom Filter 'MyFilterPipe'
+		//Calls Custom Filter 'MyFilterPipe' to remove duplicates.
 		let filterPipe = new MyFilterPipe();
 		this.modelArray=filterPipe.transform(this.modelArray,this.modelArray.length);
 		this.updateJSON();
 	   }
-	   catch(exception){ //in case of wrong json
-		   try{
-			   var removeStuff = lol.split("\n");
-			   for (var i=0; i<removeStuff.length;i++){
-				   removeStuff[i]=removeStuff[i].replace("todo","\"todo\":");
-				   removeStuff[i]=removeStuff[i].replace("task","\"task\"");
-				   removeStuff[i]=removeStuff[i].replace("complete","\"complete\"");
-				   removeStuff[i]=removeStuff[i].replace("description","\"description\"");
-				   while (removeStuff[i].includes("'")&&removeStuff[i].includes("task")){
-					   removeStuff[i]=removeStuff[i].replace("'","\"");
-				   }
-				}
-				var str="";
-			    for (var i =0; i<removeStuff.length;i++){
-					str=str+removeStuff[i];
-				}
-				console.log(str);
-				var jsObject = JSON.parse(str);
-				var c = this.modelArray.concat(jsObject['todo']);
-				this.modelArray=c;
-				let filterPipe = new MyFilterPipe();
-				this.modelArray=filterPipe.transform(this.modelArray,this.modelArray.length);
-				this.updateJSON();
-		   }catch(exception){ //failure
-				alert("Incorrect JSON format");   
-		   }
+	   catch(exception){ //Handles in case of an incorrect json format.
+		   alert("Incorrect format detected. The required format is JSON.");
 	 }  
   }
   
   
-  updateJSON(){ //Updates textarea + the json file.
+  updateJSON(){ //Updates textarea on display and calls onFs to write to persistent storage.
 	  this.textA="{\n\"todo\":"+JSON.stringify(this.modelArray,null,"\t")+"\n}";
 	  try{
 		(<any>window).webkitStorageInfo.requestQuota((<any>window).PERSISTENT, 1024*1024);
@@ -168,9 +144,9 @@ export class DisplayCComponent implements OnInit {
   }
 
   
-  //Write to persistent storage
+  //Write to persistent storage on the browser. This is only available in Chrome.
   onFs(fs) {
-	var idk=(<any>document).getElementById("qq").value;
+	var jsonText=(<any>document).getElementById("showJSON").value;
 
 	try{
 	fs.root.getFile('./tshaotodo.json', {create: true}, function(fileEntry) {
@@ -191,7 +167,7 @@ export class DisplayCComponent implements OnInit {
         console.log('Write failed: ' + e.toString());
 	  };
 	 
-      var blob = new Blob([idk], {type: 'text/plain'}); // Create a new Blob on-the-fly.
+      var blob = new Blob([jsonText], {type: 'text/plain'}); // Create a new Blob on-the-fly.
       fileWriter.write(blob);
 	
     });
